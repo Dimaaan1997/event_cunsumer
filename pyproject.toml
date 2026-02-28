@@ -1,0 +1,49 @@
+[tool.poetry]
+name = "event-consumer"
+version = "0.1.0"
+description = ""
+authors = ["Dmitry Batishchev <batishchev_ds@magnit.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+# web
+
+# validation, config
+pydantic = "2.11.7"
+pydantic-settings = "2.10.1"
+
+#kafka
+aiokafka="0.12.0"
+
+# etc
+orjson = "3.11.1"
+httpx = "0.28.1"
+
+# log
+structlog ="25.4.0"
+
+#db
+clickhouse-driver = "0.2.10"
+aiochclient="2.6.0"
+aiohttp="3.13.2"
+
+
+
+[tool.poetry.group.dev.dependencies]
+#linters
+black = "25.1.0"
+ruff = "0.11.0"
+pylint = "3.3.5"
+#tests
+pytest = "8.4.1"
+pytest-asyncio = "1.1.0"
+pytest-mock = "3.14.0"
+httpx = "0.28.1"
+psycopg2-binary = "2.9.10"
+pytest-env = "1.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

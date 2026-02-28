@@ -1,1 +1,3 @@
-# event_cunsumer
+
+
+black --check ./ && ruff check  ./  && pylint ./src
