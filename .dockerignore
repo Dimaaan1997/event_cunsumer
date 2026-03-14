@@ -1,0 +1,54 @@
+# Ignore version control system files
+.git
+.gitignore
+svn
+CVS
+
+# Python byte-compiled files
+*.pyc
+
+# Python cache directories
+__pycache__/
+
+# Editor-specific files
+.vscode/
+.idea/
+
+# Temporary files
+*.swp
+*~
+.DS_Store
+
+# Local development files and directories
+venv/
+__env__/
+__venv__/
+.venv/
+*.log
+*.sqlite
+*.sqlite3
+
+# Node.js dependencies (if applicable)
+node_modules/
+
+# Build artifacts
+dist/
+build/
+
+# Dependency management files (if applicable)
+yarn.lock
+package-lock.json
+Pipfile
+Pipfile.lock
+pyproject.toml
+poetry.lock
+
+# Unit test / coverage reports
+.coverage
+.coverage.*
+htmlcov/
+coverage/
+
+# Docker build artifacts
+Dockerfile
+docker-compose.yml

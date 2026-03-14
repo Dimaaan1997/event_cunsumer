@@ -1,0 +1,106 @@
+[tool.poetry]
+name = "event-consumer"
+version = "0.1.0"
+description = ""
+authors = ["Dmitry Batishchev <batishchev_ds@magnit.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.12"
+# web
+
+# validation, config
+pydantic = "2.11.7"
+pydantic-settings = "2.10.1"
+
+#kafka
+aiokafka="0.12.0"
+
+# etc
+orjson = "3.11.1"
+httpx = "0.28.1"
+
+# log
+structlog ="25.4.0"
+
+#db
+clickhouse-driver = "0.2.10"
+aiochclient="2.6.0"
+aiohttp="3.13.2"
+
+
+
+[tool.poetry.group.dev.dependencies]
+#linters
+black = "25.1.0"
+ruff = "0.11.0"
+pylint = "3.3.5"
+#tests
+pytest = "8.4.1"
+pytest-asyncio = "1.1.0"
+pytest-mock = "3.14.0"
+httpx = "0.28.1"
+psycopg2-binary = "2.9.10"
+pytest-env = "1.1.5"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.pylint.messages_control]
+disable = [
+    "arguments-differ", "missing-module-docstring", "missing-class-docstring", "missing-function-docstring",
+    "too-many-locals", "invalid-name", "too-few-public-methods", "broad-exception-caught", "unused-argument",
+    "fixme", "raise-missing-from", "duplicate-code", "cyclic-import"
+]
+
+
+
+[tool.ruff]
+lint.select = [
+    "A", "C40", "C90", "E", "EM", "F", "FBT", "G", "I", "ICN", "INP", "ISC", "N", "PGH", "PIE", "PL", "PYI",
+    "RSE", "RUF", "S", "SIM", "TID", "T10", "T20", "UP", "W", "YTT"
+]
+
+# RUF100 - Remove unused `noqa` directive
+lint.ignore = ["RUF100", "FBT001", "FBT002", "RUF022"]
+
+# Allow autofix for all enabled rules (when `--fix`) is provided.
+lint.fixable = ["C40", "F401", "I"]
+lint.unfixable = []
+lint.mccabe = {"max-complexity" = 9}
+target-version = "py313"
+
+exclude = [
+    "migration",
+
+    # Exclude a variety of commonly ignored directories.
+    ".bzr",
+    ".direnv",
+    ".eggs",
+    ".git",
+    ".hg",
+    ".mypy_cache",
+    ".nox",
+    ".pants.d",
+    ".ruff_cache",
+    ".svn",
+    ".tox",
+    ".venv",
+    "__pypackages__",
+    "_build",
+    "buck-out",
+    "build",
+    "dist",
+    "node_modules",
+    "venv"
+]
+
+lint.allowed-confusables = [
+    "А", "Б", "В", "Г", "Д", "Е", "Ё", "Ж", "З", "И", "Й", "К", "Л", "М", "Н", "О", "П",
+    "Р", "С", "Т", "У", "Ф", "Х", "Ц", "Ч", "Ш", "Щ", "Ъ", "Ы", "Ь", "Э", "Ю", "Я",
+    "а", "б", "в", "г", "д", "е", "ё", "ж", "з", "и", "й", "к", "л", "м", "н", "о", "п",
+    "р", "с", "т", "у", "ф", "х", "ц", "ч", "ш", "щ", "ъ", "ы", "ь", "э", "ю", "я"
+]
+line-length = 120
